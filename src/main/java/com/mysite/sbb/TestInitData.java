@@ -38,9 +38,12 @@ public class TestInitData {
         questionRepository.save(q1);
 
         Question q2 = new Question();
-        q2.setSubject("질문이요2");
-        q2.setContent("sbb가 뭔가요2");
+        q2.setSubject("오호");
+        q2.setContent("야호");
         q2.setCreateDate(LocalDateTime.now());
+
+        q2.addAnswer("네 자동으로 생성됩니다");
+        
         questionRepository.save(q2);
     }
 }
