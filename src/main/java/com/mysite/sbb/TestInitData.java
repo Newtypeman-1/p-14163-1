@@ -1,5 +1,7 @@
 package com.mysite.sbb;
 
+import com.mysite.sbb.question.Question;
+import com.mysite.sbb.question.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -43,7 +45,7 @@ public class TestInitData {
         q2.setCreateDate(LocalDateTime.now());
 
         q2.addAnswer("네 자동으로 생성됩니다");
-        
+
         questionRepository.save(q2);
     }
 }
