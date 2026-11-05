@@ -5,11 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/question") //URL 프리픽스
 public class QuestionController {
     private final QuestionService questionService;
 
@@ -21,7 +23,7 @@ public class QuestionController {
 //        return "question_list";
 //    }
 
-    @GetMapping("/question/list")
+    @GetMapping("/list")
     public String list2(Model mod){
         List<Question> questions = questionService.getList();
         mod.addAttribute("questions", questions);
@@ -29,7 +31,7 @@ public class QuestionController {
         return "question_list4";
     }
 
-    @GetMapping("/question/detail/{id}")
+    @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable Integer id){
         Question question = questionService.getQuestion(id);
         model.addAttribute("question", question);
