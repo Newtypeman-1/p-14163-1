@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -12,20 +13,28 @@ import java.util.List;
 public class QuestionController {
     private final QuestionService questionService;
 
+//    @GetMapping("/question/listold")
+//    public String list(Model model){
+//        model.addAttribute("name", "paul");
+//        model.addAttribute("ages", List.of(10, 20, 30, 40, 50));
+//
+//        return "question_list";
+//    }
+
     @GetMapping("/question/list")
-    public String list(Model model){
-        model.addAttribute("name", "paul");
-        model.addAttribute("ages", List.of(10, 20, 30, 40, 50));
-
-        return "question_list";
-    }
-
-    @GetMapping("/question/list2")
     public String list2(Model mod){
         List<Question> questions = questionService.getList();
         mod.addAttribute("questions", questions);
 
         return "question_list4";
+    }
+
+    @GetMapping("/question/detail/{id}")
+    public String detail(Model model, @PathVariable Integer id){
+        Question question = questionService.getQuestion(id);
+        model.addAttribute("question", question);
+
+        return "question_detail";
     }
 
 //    @GetMapping("/question/list")

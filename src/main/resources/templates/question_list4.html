@@ -6,7 +6,6 @@
 </head>
 <body>
   <h1>질문 목록</h1>
-
     <table>
       <thead>
       <tr>
@@ -18,7 +17,12 @@
       <tbody>
       <tr th:each="q : ${questions}">
           <td th:text="${q.id}"></td>
-          <td th:text="${q.subject}"></td>
+          <td>
+              <a
+                  th:href="@{|/question/detail/${q.id}|}"
+                  th:text="${q.subject}">
+              </a>
+          </td>
           <td th:text="${q.createDate}"></td>
       </tr>
       </tbody>
