@@ -10,7 +10,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class QuestionController {
-    public final QuestionRepository questionRepository;
+    private final QuestionService questionService;
 
     @GetMapping("/question/list")
     public String list(Model model){
@@ -22,10 +22,10 @@ public class QuestionController {
 
     @GetMapping("/question/list2")
     public String list2(Model mod){
-        List<Question> questions = questionRepository.findAll();
+        List<Question> questions = questionService.getList();
         mod.addAttribute("questions", questions);
 
-        return "question_list2";
+        return "question_list4";
     }
 
 //    @GetMapping("/question/list")

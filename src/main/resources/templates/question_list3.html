@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>질문 목록3</title>
+</head>
+<body>
+    <li th:each="question : ${questionList}">
+        <span th:text="${question.id}"></span>
+        <span th:text="${question.subject}"></span>
+    </li>
+</body>
+</html>
