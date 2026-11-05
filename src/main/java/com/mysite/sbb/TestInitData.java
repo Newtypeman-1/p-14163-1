@@ -43,6 +43,7 @@ public class TestInitData {
         q2.setCreateDate(LocalDateTime.now());
 
         q2.addAnswer("네 자동으로 생성됩니다");
+        q2.addAnswer("전 잘 모르겠네요");
 
         questionRepository.save(q2);
     }
