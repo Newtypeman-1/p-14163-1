@@ -20,6 +20,14 @@ public class QuestionController {
         return "question_list";
     }
 
+    @GetMapping("/question/list2")
+    public String list2(Model mod){
+        List<Question> questions = questionRepository.findAll();
+        mod.addAttribute("questions", questions);
+
+        return "question_list2";
+    }
+
 //    @GetMapping("/question/list")
 //    @ResponseBody
 //    public String list(){
