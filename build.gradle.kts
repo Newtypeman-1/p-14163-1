@@ -19,17 +19,25 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-webmvc")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
-    compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+
     runtimeOnly("com.h2database:h2")
+
     implementation("org.springframework.boot:spring-boot-h2console")
-    testCompileOnly("org.projectlombok:lombok")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-webmvc")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-thymeleaf-test")
+
+    testCompileOnly("org.projectlombok:lombok")
     testAnnotationProcessor("org.projectlombok:lombok")
 }
 
